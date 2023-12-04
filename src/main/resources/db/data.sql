@@ -1,0 +1,1 @@
+insert into member values (1, 'testUser', 'testpassword', 'testnickname');
