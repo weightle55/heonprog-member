@@ -1,3 +1,5 @@
+import com.github.gradle.node.npm.task.NpmTask
+import com.github.gradle.node.npm.task.NpxTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -6,6 +8,7 @@ plugins {
     kotlin("jvm") version "1.9.20"
     kotlin("plugin.spring") version "1.9.20"
     kotlin("plugin.jpa") version "1.9.20"
+    id("com.github.node-gradle.node") version "7.0.1"
 }
 
 group = "com.heonprog"
@@ -33,6 +36,26 @@ dependencies {
     testImplementation("org.springframework.security:spring-security-test")
 }
 
+node {
+    download = true
+    /**
+     * node version
+     */
+    version = "20.10.0"
+
+    /**
+     * npm version
+     */
+    npmVersion = "10.2.3"
+    nodeProjectDir = file("${projectDir}/src/main/resources/static")
+}
+
+val tailwindCss = tasks.register<NpxTask>("tailwindcss") {
+    command.set("tailwind")
+    args.set(listOf("-i", "${projectDir}/src/main/resources/static/tailwinds.css", "-o", "${projectDir}/src/main/resources/static/css/tailwind-out.css"))
+    dependsOn(tasks.npmInstall)
+}
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
@@ -42,4 +65,8 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+tasks.processResources {
+    dependsOn(tailwindCss)
 }

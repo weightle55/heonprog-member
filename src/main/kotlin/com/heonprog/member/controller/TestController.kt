@@ -14,6 +14,6 @@ class TestController {
 
     @RequestMapping("/test")
     fun testPage():String {
-        return "html/test"
+        return "index"
     }
 }

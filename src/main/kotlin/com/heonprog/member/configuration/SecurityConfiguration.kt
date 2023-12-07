@@ -39,7 +39,7 @@ class SecurityConfiguration {
             }
             .authorizeHttpRequests {
                 it.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                it.requestMatchers("/h2-console/**").permitAll()
+                it.requestMatchers("/node_modules/**", "/css/**", "/h2-console/**").permitAll()
                 it.anyRequest().authenticated()
             }
             .formLogin {

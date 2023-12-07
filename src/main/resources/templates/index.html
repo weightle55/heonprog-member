@@ -4,12 +4,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/tailwind-out.css}" rel="stylesheet" />
 </head>
 <body>
 
 <h1 class="text-3xl font-bold underline">
     Hello world!
 </h1>
+
+<button
+        class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
+    Hello, Tailwind CSS!
+</button>
+
+<button
+        class="py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700">
+    Hello, Tailwind CSS!
+</button>
+
+<div class="bg-gradient-to-r from-yellow-400 to-red-400">div test</div>
+
+<button class="bg-yellow-700 border-2 font-semibold border border-gray-300 text-green p-4 rounded">
+    Custom Button
+</button>
+
+<div class="flex h-2 w-1/2 bg-black p-2 font-bold">
+    First block with sorted classes
+</div>
+
+<div class="flex h-2 w-3 bg-white p-4 font-mono italic">
+    Second block with sorted classes
+</div>
 
 </body>
 </html>

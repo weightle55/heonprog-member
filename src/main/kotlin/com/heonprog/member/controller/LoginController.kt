@@ -13,6 +13,6 @@ class LoginController {
 
     @GetMapping("/login/success")
     fun loginSuccess(): String {
-        return "/html/login/success"
+        return "login/success"
     }
 }
