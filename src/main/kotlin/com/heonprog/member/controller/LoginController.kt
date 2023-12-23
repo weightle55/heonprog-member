@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class LoginController {
 
+    @GetMapping("/login-test")
+    fun loginPage(): String {
+        return "login/login-page"
+    }
+
     @GetMapping("/login/success")
     fun loginSuccess(): String {
         return "login/success"
