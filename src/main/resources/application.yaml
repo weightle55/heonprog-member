@@ -33,6 +33,9 @@ spring:
       schema-locations: classpath*:db/schema.sql
       data-locations: classpath*:db/data.sql
 
+jwt:
+  secret: e85cc606fb8c3327c79883e75bc67007ff556c8ac20a100ad13af7dd2d389da7
+
 
 #  security:
 #    user:
